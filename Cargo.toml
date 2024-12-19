@@ -1,0 +1,30 @@
+[package]
+name = "wgpu_surfaces"
+version = "0.1.1"
+edition = "2021"
+
+[dependencies]
+bytemuck = { version = "1.20.0", features = [ "derive" ] }
+cgmath = "0.18.0"
+env_logger = "0.11.5"
+log = "0.4.22"
+pollster = "0.4.0"
+rand = "0.8.5"
+wgpu = "23.0.1"
+winit = "0.30.5"
+
+[[example]]
+name = "simple_surface"
+path = "ch02/01_simple_surface/main.rs"
+
+[[example]]
+name = "multiple_simple_surfaces"
+path = "ch02/02_multiple_simple_surfaces/main.rs"
+
+[[example]]
+name = "parametric_surface"
+path = "ch03/01_parametric_surface/main.rs"
+
+[[example]]
+name = "multiple_parametric_surfaces"
+path = "ch03/02_multiple_parametric_surfaces/main.rs"
