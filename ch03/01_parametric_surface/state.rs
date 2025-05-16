@@ -263,7 +263,7 @@ impl<'a> State<'a> {
             update_buffers: false,
             recreate_buffers: false,
             rotation_speed: 1.0,
-            rng: rand::thread_rng(),
+            rng: rand::rng(),
             t0: std::time::Instant::now(),
             random_shape_change: 1,
 
@@ -439,7 +439,7 @@ impl<'a> State<'a> {
         // update vertex buffer for every 5 seconds
         let elapsed = self.t0.elapsed();
         if elapsed >= std::time::Duration::from_secs(5) && self.random_shape_change == 1 {
-            self.parametric_surface.surface_type = self.rng.gen_range(0..=22) as u32;
+            self.parametric_surface.surface_type = self.rng.random_range(0..=22) as u32;
             let data = create_vertices(self.parametric_surface.new());
             self.init
                 .queue
