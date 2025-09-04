@@ -1,3 +1,4 @@
+use std::sync::Arc;
 use bytemuck::cast_slice;
 use cgmath::{Matrix, Matrix4, SquareMatrix};
 use wgpu::util::DeviceExt;
@@ -11,8 +12,8 @@ use wgpu_surfaces::wgpu_simplified as ws;
 
 use crate::vertex::{create_vertices, Vertex};
 
-pub struct State<'a> {
-    init: ws::InitWgpu<'a>,
+pub struct State {
+    init: ws::InitWgpu,
     pipelines: Vec<wgpu::RenderPipeline>,
     vertex_buffers: Vec<wgpu::Buffer>,
     index_buffers: Vec<wgpu::Buffer>,
@@ -36,12 +37,12 @@ pub struct State<'a> {
     fps_counter: ws::FpsCounter,
 }
 
-impl<'a> State<'a> {
+impl State {
     pub async fn new(
-        window: Window,
+        window: Arc<Window>,
         sample_count: u32,
-        colormap_name: &'a str,
-        wireframe_color: &'a str,
+        colormap_name: &str,
+        wireframe_color: &str,
     ) -> Self {
         let init = ws::InitWgpu::init_wgpu(window, sample_count).await;
 

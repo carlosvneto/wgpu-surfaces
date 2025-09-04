@@ -4,8 +4,8 @@
 * Learn How to Create 3D Surfaces
 * using Next-Gen Rust Graphics API
 
-* Tested programs under macOS Sequoia 15.5 and Windows 11
-* Upgraded programs to wgpu version 25.0.0 and winit version 0.30.10
+* Tested programs under macOS Sequoia 15.6.1 and Windows 11
+* Upgraded programs to wgpu version 26.0.1 and winit version 0.30.12
 
 * Compile and run programs:
 * cargo run --example simple_surface

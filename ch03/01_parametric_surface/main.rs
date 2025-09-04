@@ -4,7 +4,6 @@ mod app;
 mod vertex;
 mod state;
 
-use std::error::Error;
 use winit::event_loop::EventLoop;
 
 use crate::app::Application;
@@ -33,7 +32,7 @@ fn main() {
         colormap_name: &str,
         wireframe_color: &str,
         title: &str,
-    ) -> Result<(), Box<dyn Error>> {
+    ) -> anyhow::Result<()> {
         env_logger::init();
 
         let event_loop = EventLoop::builder().build()?;
